@@ -9,9 +9,7 @@ class FilteredStreamView extends StatefulWidget {
 }
 
 class _FilteredStreamViewState extends State<FilteredStreamView> {
-  final _twitter = TwitterApi(
-      bearerToken:
-          'AAAAAAAAAAAAAAAAAAAAAH%2BScQEAAAAATMRDfzf6qRUHVZrmGxsxR6WW%2B6s%3DXYRA0LC2CCcZxtEEjrHhJypot5JtSMBkEXknkSRJEsKZfmyaVG');
+  final _twitter = TwitterApi(bearerToken: 'YOUR_TOKEN_HERE');
 
   final _tweets = <TweetData>[];
 
