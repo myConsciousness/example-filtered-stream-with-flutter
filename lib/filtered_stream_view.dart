@@ -9,11 +9,13 @@ class FilteredStreamView extends StatefulWidget {
 }
 
 class _FilteredStreamViewState extends State<FilteredStreamView> {
-  final _twitter = TwitterApi(bearerToken: 'Bearerトークンを渡してください。');
+  final _twitter = TwitterApi(
+      bearerToken:
+          'AAAAAAAAAAAAAAAAAAAAAH%2BScQEAAAAATMRDfzf6qRUHVZrmGxsxR6WW%2B6s%3DXYRA0LC2CCcZxtEEjrHhJypot5JtSMBkEXknkSRJEsKZfmyaVG');
 
   final _tweets = <TweetData>[];
 
-  late Future<Stream<FilteredStreamResponse>> _stream;
+  late Future<TwitterStreamResponse<FilteredStreamResponse>> _stream;
 
   @override
   void initState() {
@@ -30,8 +32,10 @@ class _FilteredStreamViewState extends State<FilteredStreamView> {
               return const Center(child: CircularProgressIndicator());
             }
 
+            final stream = snapshot.data.stream;
+
             return StreamBuilder(
-              stream: snapshot.data,
+              stream: stream,
               builder: (__, AsyncSnapshot snapshot) {
                 if (!snapshot.hasData) {
                   return const Center(child: CircularProgressIndicator());
