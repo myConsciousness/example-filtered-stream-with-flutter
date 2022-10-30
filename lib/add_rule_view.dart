@@ -31,8 +31,7 @@ class _AddRuleViewState extends State<AddRuleView> {
                 onPressed: () async {
                   // 入力されたルールを追加します。
                   // 追加したルールデータが返却されます。
-                  final result =
-                      await _twitter.tweetsService.createFilteringRules(
+                  final result = await _twitter.tweets.createFilteringRules(
                     rules: [
                       FilteringRuleParam(value: _addingRule.text),
                     ],
@@ -40,8 +39,7 @@ class _AddRuleViewState extends State<AddRuleView> {
 
                   // 追加したルールのIDから再検索をして、
                   // 本当に入力したルールが登録されたのか確認してみます。
-                  final addedRule =
-                      await _twitter.tweetsService.lookupFilteringRules(
+                  final addedRule = await _twitter.tweets.lookupFilteringRules(
                     ruleIds: [result.data.first.id],
                   );
 

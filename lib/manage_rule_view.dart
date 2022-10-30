@@ -16,7 +16,7 @@ class _ManageRuleViewState extends State<ManageRuleView> {
         body: Padding(
           padding: const EdgeInsets.fromLTRB(70, 30, 70, 30),
           child: FutureBuilder(
-            future: _twitter.tweetsService.lookupFilteringRules(),
+            future: _twitter.tweets.lookupFilteringRules(),
             builder: (_, AsyncSnapshot snapshot) {
               if (!snapshot.hasData) {
                 return const Center(child: CircularProgressIndicator());
@@ -31,7 +31,7 @@ class _ManageRuleViewState extends State<ManageRuleView> {
                     title: Text(rules.data[index].value),
                     trailing: ElevatedButton(
                       onPressed: () async {
-                        await _twitter.tweetsService.destroyFilteringRules(
+                        await _twitter.tweets.destroyFilteringRules(
                           ruleIds: [rules.data[index].id],
                         );
 

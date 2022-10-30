@@ -18,7 +18,7 @@ class _FilteredStreamViewState extends State<FilteredStreamView> {
   @override
   void initState() {
     super.initState();
-    _stream = _twitter.tweetsService.connectFilteredStream();
+    _stream = _twitter.tweets.connectFilteredStream();
   }
 
   @override
